@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Javascript Timeline</title>
+    <script src="external.js" defer></script>
+    <script>
+        window.onload = function () {
+            console.log(document.body.firstElementChild);
+        }; // DOM Level 1
+
+        window.addEventListener('load', function () {
+            console.log('fired the window load event now ... ');
+        }); // DOM Level 2
+
+
+
+        console.log(document.readyState);
+        document.addEventListener('readystatechange', function () {
+            console.log(document.readyState);
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('fired the DOMContentLoaded event ... ');
+        });
+
+
+    </script>
+</head>
+<body>
+    <div>Chris</div>
+    <img src="" alt=""/>
+</body>
+</html>

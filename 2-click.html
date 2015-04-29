@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        html, body {
+            height: 100%;
+        }
+
+        div.myclass {
+            position: fixed;
+        }
+
+    </style>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.body.addEventListener('click', function (event) {
+                console.log(event);
+                var parent = document.getElementById('rashmika');
+
+                var div = createElement('div', parent, 'myclass', 'Rashmika', {
+                    'data-type': 'UI Developer'
+                });
+                div.style.top = '100px';
+            });
+        });
+
+        function createElement(elementType, parent, className, innerHTML, custom) {
+            var element = document.createElement(elementType);
+            if (parent) parent.appendChild(element);
+            if (className) element.className = className;
+            if (innerHTML) element.innerHTML = innerHTML;
+
+            if (typeof custom !== 'undefined') {
+                for (var prop in custom) {
+                    element.setAttribute(prop, custom[prop]);
+                }
+            }
+
+            return element;
+        }
+
+    </script>
+</head>
+<body>
+    <div id="rashmika"></div>
+</body>
+</html>
