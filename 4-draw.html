@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        html, body {
+            height: 100%;
+        }
+
+        div.square {
+            position: fixed;
+            background-color: red;
+        }
+
+    </style>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            function mouseMoveHandler(event) {
+                // calculate the height
+                // assign height and width to the div
+
+            }
+            mouseMoveHandler.square = null;
+
+            document.body.addEventListener('mousedown', function (event) {
+                var square = createElement('div', document.body, 'square', '');
+                square.style.left = event.clientX + 'px';
+                square.style.top = event.clientY + 'px';
+                mouseMoveHandler.square = {
+                    element: square,
+                    y: event.clientY,
+                    x: event.clientX
+                };
+
+                document.body.addEventListener('mousemove', mouseMoveHandler);
+            });
+
+            document.body.addEventListener('mouseup', function () {
+                document.body.removeEventListener('mousemove', mouseMoveHandler);
+            });
+
+
+        });
+
+        function createElement(elementType, parent, className, innerHTML, custom) {
+            var element = document.createElement(elementType);
+            if (parent) parent.appendChild(element);
+            if (className) element.className = className;
+            if (innerHTML) element.innerHTML = innerHTML;
+
+            if (typeof custom !== 'undefined') {
+                for (var prop in custom) {
+                    element.setAttribute(prop, custom[prop]);
+                }
+            }
+
+            return element;
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
