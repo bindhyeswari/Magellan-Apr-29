@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="base.css"/>
+</head>
+<body>
+    <input type="text"/>
+    <input type="text"/>
+    <script>
+
+
+        var inputs = document.getElementsByTagName('input');
+
+        inputs[0].addEventListener('keydown', function (event) {
+            // do not allow anything but characters in the input box
+            if (!(/[a-z]/.test(event.key))) event.preventDefault();
+        });
+
+        inputs[1].addEventListener('change', function (event) {
+            // remember to use an enter
+
+            // reverses the input data
+            this.value = this.value.split('').reverse().join('');
+        });
+    </script>
+</body>
+</html>
